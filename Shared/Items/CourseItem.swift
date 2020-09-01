@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CourseItem: View {
     
-    var course: Course = courses[0]
+    var course: Course = courses[3]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {

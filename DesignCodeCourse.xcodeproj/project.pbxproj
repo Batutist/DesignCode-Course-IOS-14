@@ -21,8 +21,8 @@
 		3D1A9C9624F633820027DF0B /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A9C9424F633820027DF0B /* SideBar.swift */; };
 		3D1DBA0224FB116F000AB9A3 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0124FB116F000AB9A3 /* Colors+Extension.swift */; };
 		3D1DBA0324FB116F000AB9A3 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0124FB116F000AB9A3 /* Colors+Extension.swift */; };
-		3D1DBA0524FB17E5000AB9A3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0424FB17E5000AB9A3 /* SwiftUIView.swift */; };
-		3D1DBA0624FB17E5000AB9A3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0424FB17E5000AB9A3 /* SwiftUIView.swift */; };
+		3D1DBA0524FB17E5000AB9A3 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0424FB17E5000AB9A3 /* CourseModel.swift */; };
+		3D1DBA0624FB17E5000AB9A3 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DBA0424FB17E5000AB9A3 /* CourseModel.swift */; };
 		3D77C25224F787FD00A1367F /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C25124F787FD00A1367F /* CourseItem.swift */; };
 		3D77C25324F787FD00A1367F /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C25124F787FD00A1367F /* CourseItem.swift */; };
 		3D77C25824F789D400A1367F /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77C25724F789D400A1367F /* CourseList.swift */; };
@@ -42,7 +42,7 @@
 		3D1A9C9124F6310D0027DF0B /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		3D1A9C9424F633820027DF0B /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		3D1DBA0124FB116F000AB9A3 /* Colors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
-		3D1DBA0424FB17E5000AB9A3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		3D1DBA0424FB17E5000AB9A3 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		3D77C25124F787FD00A1367F /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
 		3D77C25724F789D400A1367F /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,11 +81,11 @@
 				3D1A9C6C24F625990027DF0B /* DesignCodeCourseApp.swift */,
 				3D77C25524F7895200A1367F /* Navigation */,
 				3D77C25624F7897100A1367F /* Items */,
+				3DFF364224FE198B00BC7373 /* Model */,
 				3D1A9C9124F6310D0027DF0B /* CourseView.swift */,
 				3D77C25724F789D400A1367F /* CourseList.swift */,
 				3D1A9C6E24F625990027DF0B /* Assets.xcassets */,
-				3D1DBA0124FB116F000AB9A3 /* Colors+Extension.swift */,
-				3D1DBA0424FB17E5000AB9A3 /* SwiftUIView.swift */,
+				3DFF364324FE19B800BC7373 /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -132,6 +132,22 @@
 				3D1A9C8E24F62F9F0027DF0B /* CourseRow.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		3DFF364224FE198B00BC7373 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D1DBA0424FB17E5000AB9A3 /* CourseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DFF364324FE19B800BC7373 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D1DBA0124FB116F000AB9A3 /* Colors+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +249,7 @@
 			files = (
 				3D1A9C9524F633820027DF0B /* SideBar.swift in Sources */,
 				3D77C25224F787FD00A1367F /* CourseItem.swift in Sources */,
-				3D1DBA0524FB17E5000AB9A3 /* SwiftUIView.swift in Sources */,
+				3D1DBA0524FB17E5000AB9A3 /* CourseModel.swift in Sources */,
 				3D1A9C8124F625990027DF0B /* ContentView.swift in Sources */,
 				3D1DBA0224FB116F000AB9A3 /* Colors+Extension.swift in Sources */,
 				3D1A9C8F24F62F9F0027DF0B /* CourseRow.swift in Sources */,
@@ -249,7 +265,7 @@
 			files = (
 				3D1A9C9624F633820027DF0B /* SideBar.swift in Sources */,
 				3D77C25324F787FD00A1367F /* CourseItem.swift in Sources */,
-				3D1DBA0624FB17E5000AB9A3 /* SwiftUIView.swift in Sources */,
+				3D1DBA0624FB17E5000AB9A3 /* CourseModel.swift in Sources */,
 				3D1A9C8224F625990027DF0B /* ContentView.swift in Sources */,
 				3D1DBA0324FB116F000AB9A3 /* Colors+Extension.swift in Sources */,
 				3D1A9C9024F62F9F0027DF0B /* CourseRow.swift in Sources */,

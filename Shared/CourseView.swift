@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CourseView: View {
     
     @State var isShow = false
+    @State var selectedCourse: Course? = nil
+    @State var isCourseDisabled = false
     @Namespace var namespace
-    
-    private let cardID = "Card"
     
     var body: some View {
         ZStack {
@@ -22,17 +23,36 @@ struct CourseView: View {
                         CourseItem(course: course)
                             .matchedGeometryEffect(id: course.id, in: namespace, isSource: !isShow)
                             .frame(width: 380, height: 250)
+                            .onTapGesture {
+                                withAnimation(.spring()) {
+                                    isShow.toggle()
+                                    selectedCourse = course
+                                    isCourseDisabled = true
+                                }
+                            }
+                            .disabled(isCourseDisabled)
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
             
-            if isShow {
+            if selectedCourse != nil {
                 ScrollView {
                     
-                    CourseItem()
-                        .matchedGeometryEffect(id: courses[3].id, in: namespace)
+                    CourseItem(course: selectedCourse!)
+                        .matchedGeometryEffect(id: selectedCourse!.id, in: namespace)
                         .frame(height: 300)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                isShow.toggle()
+                                selectedCourse = nil
+                                
+                                // Can't tap to another course during animation
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                    isCourseDisabled = false
+                                }
+                            }
+                        }
                     
                     VStack {
                         ForEach(0 ..< 20) { item in
@@ -56,17 +76,12 @@ struct CourseView: View {
                 .edgesIgnoringSafeArea(.all)
             }
         }
-        .onTapGesture {
-            withAnimation(.spring()) {
-                isShow.toggle()
-            }
-        }
     }
 }
 
 struct CourseView_Previews: PreviewProvider {
     static var previews: some View {
         CourseView()
-            .previewDevice("iPhone SE (2nd generation)")
+            .previewDevice("iPhone 11")
     }
 }
