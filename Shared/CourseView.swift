@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct CourseView: View {
     
@@ -17,14 +16,32 @@ struct CourseView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(courses) { course in
+            #if os(iOS)
+            content
+            fullContent
+                .background(VisualEffectBlur().edgesIgnoringSafeArea(.all))
+                .navigationBarHidden(true)
+            
+            #else
+            content
+            fullContent
+                .background(VisualEffectBlur().edgesIgnoringSafeArea(.all))
+            #endif
+        }
+        .navigationTitle("Courses")
+    }
+    
+    @ViewBuilder
+    var content: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)], spacing: 16) {
+                ForEach(courses) { course in
+                    VStack {
                         CourseItem(course: course)
                             .matchedGeometryEffect(id: course.id, in: namespace, isSource: !isShow)
-                            .frame(width: 380, height: 250)
+                            .frame(height: 200)
                             .onTapGesture {
-                                withAnimation(.spring()) {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                                     isShow.toggle()
                                     selectedCourse = course
                                     isCourseDisabled = true
@@ -32,49 +49,39 @@ struct CourseView: View {
                             }
                             .disabled(isCourseDisabled)
                     }
+                    .matchedGeometryEffect(id: "container\(course.id)", in: namespace, isSource: !isShow)
                 }
-                .frame(maxWidth: .infinity)
             }
-            
-            if selectedCourse != nil {
-                ScrollView {
-                    
-                    CourseItem(course: selectedCourse!)
-                        .matchedGeometryEffect(id: selectedCourse!.id, in: namespace)
-                        .frame(height: 300)
-                        .onTapGesture {
-                            withAnimation(.spring()) {
-                                isShow.toggle()
-                                selectedCourse = nil
-                                
-                                // Can't tap to another course during animation
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                                    isCourseDisabled = false
-                                }
+            .padding(16)
+            .frame(maxWidth: .infinity)
+        }
+        .zIndex(1)
+    }
+    
+    @ViewBuilder
+    var fullContent: some View {
+        if selectedCourse != nil {
+            ZStack(alignment: .topTrailing) {
+                
+                CourseDetail(course: selectedCourse!, namespace: namespace)
+                
+                CloseButton()
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            isShow.toggle()
+                            selectedCourse = nil
+                            
+                            // Can't tap to another course during animation
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                isCourseDisabled = false
                             }
                         }
-                    
-                    VStack {
-                        ForEach(0 ..< 20) { item in
-                            CourseRow()
-                        }
                     }
-                    .padding()
-                }
-                .background(Color.themeBackgroundColor1)
-                .transition(
-                    .asymmetric(
-                        insertion: AnyTransition
-                            .opacity
-                            .animation(
-                                Animation.spring().delay(0.3)),
-                        removal: AnyTransition
-                            .opacity
-                            .animation(.spring())
-                    )
-                )
-                .edgesIgnoringSafeArea(.all)
+                    .padding(16)
             }
+            .zIndex(2)
+            .frame(maxWidth: 712)
+            .frame(maxWidth: .infinity)
         }
     }
 }

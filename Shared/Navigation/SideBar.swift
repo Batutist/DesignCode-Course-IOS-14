@@ -26,7 +26,7 @@ struct SideBar: View {
             component
                 .frame(minWidth: 150, idealWidth: 200, maxWidth: 250)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .automatic) {
                         Button(action: {}, label: {
                             Image(systemName: "person.crop.circle")
                         })
