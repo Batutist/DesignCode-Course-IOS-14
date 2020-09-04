@@ -37,5 +37,6 @@ struct CourseRow: View {
 struct CourseRow_Previews: PreviewProvider {
     static var previews: some View {
         CourseRow()
+            .previewDevice("iPhone 11")
     }
 }

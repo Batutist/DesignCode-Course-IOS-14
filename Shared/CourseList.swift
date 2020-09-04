@@ -23,7 +23,7 @@ struct CourseList: View {
         List(0 ..< 20) { item in
             CourseRow()
         }
-        .navigationTitle("Courses")
+//        .navigationTitle("Courses")
     }
 }
 

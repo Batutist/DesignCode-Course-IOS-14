@@ -45,6 +45,7 @@ struct CourseItem_Previews: PreviewProvider {
     static var previews: some View {
         
         CourseItem()
+            .previewDevice("iPhone 11")
         
     }
 }

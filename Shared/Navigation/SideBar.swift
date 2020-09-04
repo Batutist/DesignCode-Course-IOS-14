@@ -34,14 +34,14 @@ struct SideBar: View {
                 }
             #endif
             
-            CourseView()
+            CoursesView()
         }
     }
     
     private var component: some View {
         List {
             
-            NavigationLink(destination: CourseView()) {
+            NavigationLink(destination: CoursesView()) {
                 Label(
                     title: { Text("Courses") },
                     icon: { Image(systemName: "book.closed") }
@@ -66,6 +66,7 @@ struct SideBar: View {
             )
         }
         .listStyle(SidebarListStyle())
+        
     }
 }
 
