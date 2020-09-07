@@ -13,16 +13,22 @@ struct CoursesView: View {
     @State var selectedCourse: Course? = nil
     @State var isCourseDisabled = false
     @Namespace var namespace
+    @Namespace var courseDetailNamespace
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     
     var body: some View {
         ZStack {
             #if os(iOS)
-            content
-                .navigationBarHidden(true)
+            if horizontalSizeClass == .compact {
+                content
+                    .navigationBarHidden(true)
+            } else {
+                content
+            }
             fullContent
                 .background(VisualEffectBlur().edgesIgnoringSafeArea(.all))
-                .navigationBarHidden(true)
-            
             #else
             content
             fullContent
@@ -70,7 +76,13 @@ struct CoursesView: View {
                     .padding(.leading, 16)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 240))]) {
                     ForEach(courseSections) { courseSection in
+                        #if os(iOS)
+                        NavigationLink(destination: CourseDetail(namespace: courseDetailNamespace)) {
+                            CourseRow(courseSection: courseSection)
+                        }
+                        #else
                         CourseRow(courseSection: courseSection)
+                        #endif
                     }
                 }
                 .padding(.horizontal, 16)

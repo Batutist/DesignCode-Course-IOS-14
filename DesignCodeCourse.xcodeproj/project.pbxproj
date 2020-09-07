@@ -48,6 +48,8 @@
 		3DD0E73D2502F8CE00AD8B6B /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0E73C2502F8CE00AD8B6B /* TabBar.swift */; };
 		3DEFCF55250092C7002CFF98 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEFCF54250092C7002CFF98 /* VisualEffectBlur.swift */; };
 		3DEFCF57250092D2002CFF98 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEFCF56250092D2002CFF98 /* VisualEffectBlur.swift */; };
+		3DFBDDCB2505FBD2006EA418 /* CourseSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBDDCA2505FBD2006EA418 /* CourseSectionDetail.swift */; };
+		3DFBDDCC2505FBD2006EA418 /* CourseSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBDDCA2505FBD2006EA418 /* CourseSectionDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,7 @@
 		3DD0E73C2502F8CE00AD8B6B /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3DEFCF54250092C7002CFF98 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		3DEFCF56250092D2002CFF98 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		3DFBDDCA2505FBD2006EA418 /* CourseSectionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSectionDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 				3DFF364224FE198B00BC7373 /* Model */,
 				3D1A9C9124F6310D0027DF0B /* CoursesView.swift */,
 				3D87B524250088A6000DBC9E /* CourseDetail.swift */,
+				3DFBDDCA2505FBD2006EA418 /* CourseSectionDetail.swift */,
 				3D87B5212500843C000DBC9E /* CloseButton.swift */,
 				3D77C25724F789D400A1367F /* CourseList.swift */,
 				3D1A9C6E24F625990027DF0B /* Assets.xcassets */,
@@ -295,6 +299,7 @@
 				3D87B5222500843C000DBC9E /* CloseButton.swift in Sources */,
 				3D87B53A25008D3D000DBC9E /* Tutorial.swift in Sources */,
 				3D1A9C9524F633820027DF0B /* SideBar.swift in Sources */,
+				3DFBDDCB2505FBD2006EA418 /* CourseSectionDetail.swift in Sources */,
 				3D87B53025008D3D000DBC9E /* Livestream.swift in Sources */,
 				3DEFCF55250092C7002CFF98 /* VisualEffectBlur.swift in Sources */,
 				3D77C25224F787FD00A1367F /* CourseItem.swift in Sources */,
@@ -320,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D87B5232500843C000DBC9E /* CloseButton.swift in Sources */,
+				3DFBDDCC2505FBD2006EA418 /* CourseSectionDetail.swift in Sources */,
 				3D87B53B25008D3D000DBC9E /* Tutorial.swift in Sources */,
 				3D1A9C9624F633820027DF0B /* SideBar.swift in Sources */,
 				3D87B53125008D3D000DBC9E /* Livestream.swift in Sources */,
