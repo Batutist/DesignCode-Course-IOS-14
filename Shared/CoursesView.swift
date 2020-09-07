@@ -18,14 +18,14 @@ struct CoursesView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
     
+    
     var body: some View {
         ZStack {
             #if os(iOS)
             if horizontalSizeClass == .compact {
-                content
-                    .navigationBarHidden(true)
+                tabBar
             } else {
-                content
+                sideBar
             }
             fullContent
                 .background(VisualEffectBlur().edgesIgnoringSafeArea(.all))
@@ -43,12 +43,6 @@ struct CoursesView: View {
         ScrollView {
             
             VStack {
-                Text("Courses")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 50, leading: 16, bottom: 0, trailing: 0))
-                
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)], spacing: 16) {
                     ForEach(courses) { course in
                         VStack {
@@ -87,10 +81,9 @@ struct CoursesView: View {
                 }
                 .padding(.horizontal, 16)
             }
-            
-            
         }
         .zIndex(1)
+        .navigationTitle("Courses")
     }
     
     @ViewBuilder
@@ -118,6 +111,78 @@ struct CoursesView: View {
             .frame(maxWidth: 712)
             .frame(maxWidth: .infinity)
         }
+    }
+    
+    var tabBar: some View {
+        TabView {
+            NavigationView {
+                content
+            }
+            .tabItem {
+                Image(systemName: "book.closed")
+                Text("Courses")
+            }
+            
+            NavigationView {
+                CourseList()
+            }
+            .tabItem {
+                Image(systemName: "list.bullet.rectangle")
+                Text("Turtorials")
+            }
+            
+            NavigationView {
+                CoursesView()
+            }
+            .tabItem {
+                Image(systemName: "tv")
+                Text("Livestreams")
+            }
+            
+            NavigationView {
+                CoursesView()
+            }
+            .tabItem {
+                Image(systemName: "mail.stack")
+                Text("Certificates")
+            }
+            
+            NavigationView {
+                CoursesView()
+            }
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Search")
+            }
+            
+        }
+    }
+    
+    @ViewBuilder
+    var sideBar: some View {
+        #if os(iOS)
+        NavigationView {
+            List {
+                NavigationLink(destination: CoursesView()) {
+                    Label("Courses", systemImage: "book.closed")
+                }
+                Label("Tutorials", systemImage: "list.bullet.rectangle")
+                Label("Live sessions", systemImage: "tv")
+                Label("Certificates", systemImage: "mail.stack")
+                Label("Search", systemImage: "magnifyingglass.circle")
+            }
+            .listStyle(SidebarListStyle())
+            .navigationTitle("Learn")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {
+                        Image(systemName: "person.crop.circle")
+                    })
+                }
+            }
+            content
+        }
+        #endif
     }
 }
 
